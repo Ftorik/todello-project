@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: hsla(154, 68.5%, 17.5%, 0.9);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1
+}
+
+.head-text {
+    display: flex;
+    flex-basis: 50%;
+    margin-left: 20px
+}
+
+.head-search {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center
+}
+
+.sider {
+    overflow: auto;
+    height: 100vh;
+    background-color: hsla(154, 68.5%, 17.5%) !important;
+    position: fixed !important;
+    left: 0
+}
+
+.sider-menu {
+    background-color: hsla(154, 68.5%, 17.5%);
+    color: white;
+}
+
+.ant-menu-item:hover {
+    background-color: rgb(255 255 255 / 25%) !important;
+    color: white !important;
+}
+
+
+.ant-menu-item-selected {
+    background-color: rgb(255 255 255 / 45%) !important;
+    color: white !important;
+}
+
+.layout-min-height {
+    min-height: 100vh
+}
+
+.board-layout {
+    margin-left: 200px !important;
+    background-color: rgb(17, 106, 58);
+    /*background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2404x1600/2f123d08bc78faf5d4fc9e19e6060509/photo-1464263866732-138a1da44860.jpg");*/
+}
+
+.board-content {
+    margin: 16px;
+    overflow: auto;
+}
+
+.card {
+    width: 300px;
+}
+
+.card:hover {
+    background-color: rgba(253, 253, 253, 0.5);
+}
+
+.card:hover .card-edit {
+    visibility: visible;
+}
+
+.card-title {
+    inline-size: 250px;
+    overflow-wrap: break-word;
+}
+
+.card-edit {
+    padding: 2px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    visibility: hidden;
+}
+
+.card-edit:hover {
+    background: lightgray;
+    border-radius: 2px;
+}
+
+.task-search-input {
+    color: white !important;
+    width: 200px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+.task-search-input:hover {
+    color: white !important;
+    cursor: text;
+    border: 1px solid white !important;
+    background-color: rgba(255, 255, 255, 0.4)
+}
+
+.task-search-input input.ant-input {
+    color: white;
+}
