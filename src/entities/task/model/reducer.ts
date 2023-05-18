@@ -34,8 +34,7 @@ export const taskReducer = (state = initialState, action: TaskAction) => {
                 tasks: [
                     ...state.tasks,
                     {
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        id: uuid(action.payload.title),
+                        id: uuid(),
                         title: action.payload.title,
                         isDone: false,
                         listId: action.payload.listId,

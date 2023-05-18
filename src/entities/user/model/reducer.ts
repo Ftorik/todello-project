@@ -13,7 +13,7 @@ export const userReducer = (state = initialState, action: UserAction) => {
             return [
                 ...state,
                 {
-                    id: uuid(action.payload.name),
+                    id: uuid(),
                     name: action.payload.name,
                     password: action.payload.password,
                 },

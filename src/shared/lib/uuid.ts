@@ -1,1 +1,1 @@
-export const uuid = (str = '') => Date.now() + str;
+export const uuid = () => crypto.randomUUID();

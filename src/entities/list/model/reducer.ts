@@ -30,7 +30,7 @@ export const listReducer = (state = initialState, action: ListAction) => {
                 lists: [
                     ...state.lists,
                     {
-                        id: uuid(action.payload),
+                        id: uuid(),
                         order: state.counter + 1,
                         title: action.payload,
                     },
