@@ -30,9 +30,15 @@ export const ActiveSearch = ({ visible, setVisible }: ActiveSearchProps) => {
             return [{ value: 'empty', label: <NoResult /> }];
         }
 
-        return tasks
+        const foundTasks = tasks
             .filter((t) => t.title.toLowerCase().includes(query.toLowerCase()))
             .map((e) => ({ value: e.id, label: <TmpResult obj={e} /> }));
+
+        if (!foundTasks.length) {
+            return [{ value: 'empty', label: <NoResult /> }];
+        }
+
+        return foundTasks;
     };
 
     const handleSearch = (value: string) => {
