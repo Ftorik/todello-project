@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Space } from 'antd';
 import { listLib, listModel } from 'entities/list';
+import { AddNewList } from 'entities/list/ui/new-list';
 import { taskLib } from 'entities/task';
 import FeatureTodoList from 'features/todo-list';
-import { AddNewList } from 'entities/list/ui/new-list';
 
 type ListType = import('entities/list').listModel.types.ListType;
 
@@ -18,20 +18,6 @@ export function Board() {
         isDone: false,
         listId: '',
     });
-
-    const useLists = (listsArr: ListType[]) => {
-        const [tmpLists, setTmpLists] = useState<ListType[]>([]);
-
-        const memLists = useMemo(() => listsArr, [listsArr]);
-
-        useEffect(() => {
-            setTmpLists(memLists);
-        }, [memLists]);
-
-        return tmpLists;
-    };
-
-    const stateLists = useLists(lists);
 
     const { swapLists } = listLib.useListActions();
 
@@ -61,15 +47,10 @@ export function Board() {
         current.style.borderRadius = '8px';
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleDragOver = (e: React.DragEvent) => {
         const current = e.currentTarget as HTMLElement;
         const active = document.querySelector('.active-list');
         const isMovable = active && current.classList.contains('list-header') && active !== current;
-
-        // https://stackoverflow.com/questions/3753634/check-if-an-element-is-a-child-of-a-parent
-        // const isChildOfParent = (e.target as Element).matches('.ant-card-head :scope');
-        // const isChildOfParent = (e.target as Element).matches('.ant-list-header:scope');
 
         if (isMovable) {
             e.preventDefault();
@@ -115,7 +96,7 @@ export function Board() {
 
     return (
         <Space align='start' size='large' style={{ display: 'flex' }}>
-            {stateLists.sort(sortLists).map((list) => (
+            {lists.sort(sortLists).map((list) => (
                 <FeatureTodoList
                     startList={startList}
                     startTask={startTask}
