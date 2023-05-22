@@ -1,16 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { BoardPage } from 'pages/board';
 
-import { BoardPage } from '../pages/board';
-
-import { store } from './store';
+import { persistor, store } from './store';
 
 import './styles/index.css';
 
 function App() {
     return (
         <Provider store={store}>
-            <BoardPage />
+            <PersistGate loading={null} persistor={persistor}>
+                <BoardPage />
+            </PersistGate>
         </Provider>
     );
 }
