@@ -3,21 +3,26 @@ import { Space } from 'antd';
 import { listLib, listModel } from 'entities/list';
 import { AddNewList } from 'entities/list/ui/new-list';
 import { taskLib } from 'entities/task';
-import FeatureTodoList from 'features/todo-list';
+import { FeatureTodoList } from 'features/todo-list';
+
+import { sortLists } from '../lib/sort';
 
 type ListType = import('entities/list').listModel.types.ListType;
 
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
+const initialTask = {
+    id: '',
+    title: '',
+    isDone: false,
+    listId: '',
+};
+const initialList = { id: '', order: 0, title: '' };
+
 export function Board() {
     const lists = listModel.selectors.useLists();
-    const [startList, setStartList] = useState<ListType>({ id: '', order: 0, title: '' });
-    const [startTask, setStartTask] = useState<TaskType>({
-        id: '',
-        title: '',
-        isDone: false,
-        listId: '',
-    });
+    const [startList, setStartList] = useState<ListType>(initialList);
+    const [startTask, setStartTask] = useState<TaskType>(initialTask);
 
     const { swapLists } = listLib.useListActions();
 
@@ -84,14 +89,6 @@ export function Board() {
         if (startTask && activeTask && isEmpty) {
             moveTaskToList(startTask.id, list.id);
         }
-    };
-
-    const sortLists = (a: ListType, b: ListType) => {
-        if (a.order > b.order) {
-            return 1;
-        }
-
-        return -1;
     };
 
     return (

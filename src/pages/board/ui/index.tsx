@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { Board } from 'widgets/board';
-import { Header } from 'widgets/header';
-import { Sider } from 'widgets/sider';
+import { Board } from 'widgets/board/ui';
+import { Header } from 'widgets/header/ui';
+import { Sider } from 'widgets/sider/ui';
 
 const { Content } = Layout;
 

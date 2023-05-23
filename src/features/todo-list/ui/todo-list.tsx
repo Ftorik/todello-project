@@ -3,42 +3,26 @@ import { List } from 'antd';
 import { listLib, ListTitle } from 'entities/list';
 import { TaskCard, taskLib, taskModel } from 'entities/task';
 
-import { TodoListFooter } from './ui/todo-list-footer';
+import { TodoListProps } from '../model/types';
 
-type ListType = import('entities/list').listModel.types.ListType;
+import { TodoListFooter } from './todo-list-footer';
+
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
-interface TodoListProps {
-    style?: React.CSSProperties;
-    list: ListType;
-    draggable: boolean;
-    startTask: TaskType;
-    startList: ListType;
-
-    setStartTask(task: TaskType): void;
-
-    onDragStart(e: React.DragEvent, list?: ListType): void;
-
-    onDragLeave(e: React.DragEvent): void;
-
-    onDragEnd(e: React.DragEvent): void;
-
-    onDragOver(e: React.DragEvent): void;
-
-    onDrop(e: React.DragEvent, list?: ListType): void;
-}
-
-const FeatureTodoList = ({ list, setStartTask, startTask, startList, ...props }: TodoListProps) => {
+export const FeatureTodoList = ({
+    list,
+    setStartTask,
+    startTask,
+    startList,
+    ...props
+}: TodoListProps) => {
+    const tasks = taskModel.selectors.useTasksByListId(list.id);
     const { deleteList } = listLib.useListActions();
-
     const { addTask, deleteTask, deleteTasksByListId, moveTaskToList } = taskLib.useTaskActions();
 
     const addNewTask = (title: string) => {
         addTask(list.id, title);
     };
-
-    const tasks = taskModel.selectors.useTasksByListId(list.id);
-
     const deleteListAndTasks = () => {
         deleteList(list.id);
         deleteTasksByListId(list.id);
@@ -52,7 +36,6 @@ const FeatureTodoList = ({ list, setStartTask, startTask, startList, ...props }:
         current.classList.add('active-task');
         current.style.border = '1px solid red';
     };
-
     const handleDragEndTask = (e: React.DragEvent) => {
         const current = e.currentTarget as HTMLElement;
 
@@ -64,7 +47,6 @@ const FeatureTodoList = ({ list, setStartTask, startTask, startList, ...props }:
 
         current.style.background = 'white';
     };
-
     const overTasksContainer = (e: React.DragEvent) => {
         const currentParent = e.currentTarget as HTMLElement;
         const active = document.querySelector('.active-task');
@@ -74,7 +56,6 @@ const FeatureTodoList = ({ list, setStartTask, startTask, startList, ...props }:
             e.preventDefault();
         }
     };
-
     const dropOnTasksContainer = (e: React.DragEvent, task: TaskType) => {
         e.preventDefault();
         const activeList = document.querySelector('.active-list');
@@ -123,5 +104,3 @@ const FeatureTodoList = ({ list, setStartTask, startTask, startList, ...props }:
         </List>
     );
 };
-
-export default FeatureTodoList;

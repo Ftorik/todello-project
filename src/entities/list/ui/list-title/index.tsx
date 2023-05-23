@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Input, InputRef } from 'antd';
-import { listLib } from 'entities/list/index';
+import { listLib } from 'entities/list';
 
-type ListType = import('entities/list/index').listModel.types.ListType;
+type ListType = import('entities/list').listModel.types.ListType;
 
 type ListTitleProps = {
     list: ListType;

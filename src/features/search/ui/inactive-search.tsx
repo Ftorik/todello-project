@@ -2,11 +2,9 @@ import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
-interface InactiveInactiveSearchProps {
-    setVisible(visible: boolean): void;
-}
+import type { InactiveSearchProps } from '../model/types';
 
-export const InactiveSearch = ({ setVisible }: InactiveInactiveSearchProps) => (
+export const InactiveSearch = ({ setVisible }: InactiveSearchProps) => (
     <Input
         onFocus={() => setVisible(true)}
         size='middle'

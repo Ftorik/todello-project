@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
-export type TaskCardProps = PropsWithChildren<{
+export type TaskRowProps = PropsWithChildren<{
     task: TaskType;
     handeDragOverTask(e: React.DragEvent): void;
     handleDragEndTask(e: React.DragEvent): void;
@@ -22,7 +22,7 @@ export const TaskRow = ({
     handleDropTask,
     deleteTask,
     modalTask,
-}: TaskCardProps) => {
+}: TaskRowProps) => {
     if (!task) return null;
 
     return (

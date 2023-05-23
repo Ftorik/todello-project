@@ -1,7 +1,7 @@
 import React from 'react';
+import { Layout, Menu, MenuProps } from 'antd';
+
 import { DesktopOutlined, FileOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Layout, Menu } from 'antd';
 
 const { Sider: AntSider } = Layout;
 
@@ -12,7 +12,7 @@ function getItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNode)
 }
 
 const items: MenuItem[] = [
-    getItem('Option 1', '1', <DesktopOutlined />),
+    getItem('Option_1', '1', <DesktopOutlined />),
     getItem('Option 2', '2', <FileOutlined />),
 ];
 

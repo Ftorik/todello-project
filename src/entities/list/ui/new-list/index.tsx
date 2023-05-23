@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input, InputRef, Space } from 'antd';
-import { listLib } from 'entities/list/index';
+import { listLib } from 'entities/list';
 import { useOutsideClick } from 'shared/lib';
 
 export const AddNewList = () => {

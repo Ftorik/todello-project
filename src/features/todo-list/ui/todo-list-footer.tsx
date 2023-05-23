@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import { CreateTask } from 'entities/task';
 
+import { TodoListFooterProps } from '../model/types';
+
 import { EditFooter } from './edit-footer';
 
-interface TodoListFooterProps {
-    addNewTask(title: string): void;
-
-    deleteListAndTasks(): void;
-}
-
-export function TodoListFooter(props: TodoListFooterProps) {
+export function TodoListFooter({ addNewTask, deleteListAndTasks }: TodoListFooterProps) {
     const [visible, setVisible] = useState(false);
 
-    const taskProps = { visible, setVisible, addNewTask: props.addNewTask };
-    const editProps = { setVisible, deleteListAndTasks: props.deleteListAndTasks };
+    const taskProps = { visible, setVisible, addNewTask };
+    const editProps = { setVisible, deleteListAndTasks };
 
     return visible ? <CreateTask taskProps={taskProps} /> : <EditFooter editProps={editProps} />;
 }

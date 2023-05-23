@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentPreview, Previews } from '@react-buddy/ide-toolbox';
 
 import { ExampleLoaderComponent, PaletteTree } from './palette';
-import { BoardPage } from '../pages/board';
+import { BoardPage } from '../pages/board/ui';
 
 const ComponentPreviews = () => (
     <Previews palette={<PaletteTree />}>

@@ -4,11 +4,7 @@ import { AutoComplete, Input, InputRef } from 'antd';
 import type { SelectProps } from 'antd/es/select';
 import { taskLib, taskModel } from 'entities/task';
 
-interface ActiveSearchProps {
-    visible: boolean;
-
-    setVisible(visible: boolean): void;
-}
+import type { ActiveSearchProps } from '../model/types';
 
 const NoResult = () => <div>No result found</div>;
 
@@ -63,7 +59,7 @@ export const ActiveSearch = ({ visible, setVisible }: ActiveSearchProps) => {
 
     return (
         <AutoComplete
-            dropdownMatchSelectWidth={252}
+            // popupMatchSelectWidth={550} //TODO: fix popup size(or remove it)
             style={{ width: 300, cursor: 'text' }}
             options={options}
             value={inputValue}

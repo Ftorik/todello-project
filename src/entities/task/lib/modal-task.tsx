@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'antd';
 
-import { ModalTask } from '../ui/task-modal';
+import { ModalTask } from '../ui';
 
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
