@@ -22,7 +22,7 @@ export const ListTitle = ({ list }: ListTitleProps) => {
     };
     const handleInputConfirm = () => {
         setInputVisible(false);
-        if (inputValue.trim()) {
+        if (inputValue.trim() && inputValue !== list.title) {
             setListTitle(list.id, inputValue);
         } else {
             setInputValue(list.title);
