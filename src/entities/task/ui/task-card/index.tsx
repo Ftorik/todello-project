@@ -1,7 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
-import { taskLib } from 'entities/task';
+
+import { modalTask } from '../../lib';
 
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
@@ -29,7 +30,7 @@ export const TaskCard = ({
             onDragStart={(e) => handleDragStartTask(e, task)}
             onDragEnd={handleDragEndTask}
             onDragLeave={handleDragLeaveTask}
-            onClick={() => taskLib.modalTask(task)}
+            onClick={() => modalTask(task)}
             key={task.id}
             bodyStyle={{ padding: 5 }}
             role='presentation'

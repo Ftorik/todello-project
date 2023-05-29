@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Input, InputRef } from 'antd';
-import { listLib } from 'entities/list';
+
+import { useListActions } from '../../lib';
 
 type ListType = import('entities/list').listModel.types.ListType;
 
@@ -12,7 +13,7 @@ export const ListTitle = ({ list }: ListTitleProps) => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState(list.title);
     const inputRef = useRef<InputRef>(null);
-    const { setListTitle } = listLib.useListActions();
+    const { setListTitle } = useListActions();
 
     const showInput = () => {
         setInputVisible(true);

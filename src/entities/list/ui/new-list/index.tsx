@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input, InputRef, Space } from 'antd';
-import { listLib } from 'entities/list';
 import { useOutsideClick } from 'shared/lib';
+
+import { useListActions } from '../../lib';
 
 export const AddNewList = () => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
     const inputRef = useRef<InputRef>(null);
-    const { addList } = listLib.useListActions();
+    const { addList } = useListActions();
 
     const handleCancel = () => setInputVisible(false);
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
