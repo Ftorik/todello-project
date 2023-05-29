@@ -8,7 +8,7 @@ import { taskModel } from 'entities/task';
 import { userModel } from 'entities/user';
 
 const persistConfig = {
-    key: 'root',
+    key: 'todello',
     storage,
 };
 
@@ -17,7 +17,6 @@ export const rootReducer = combineReducers({
     lists: listModel.reducer.listReducer,
     users: userModel.reducer.userReducer,
 });
-
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

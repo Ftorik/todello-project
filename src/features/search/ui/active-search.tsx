@@ -6,11 +6,13 @@ import { taskLib, taskModel } from 'entities/task';
 
 import type { ActiveSearchProps } from '../model/types';
 
+type TmpType = { task: import('entities/task').taskModel.types.TaskType };
+
 const NoResult = () => <div>No result found</div>;
 
-const TmpResult = ({ obj }: any) => (
+const TmpResult = ({ task }: TmpType) => (
     <div>
-        Found: {obj.title} in {obj.listId}
+        Found: {task.title} in {task.listId}
     </div>
 );
 
