@@ -4,14 +4,16 @@ import { Board } from 'widgets/board/ui';
 import { Header } from 'widgets/header/ui';
 import { Sider } from 'widgets/sider/ui';
 
+import classes from './styles.module.css';
+
 const { Content } = Layout;
 
 export const BoardPage = () => (
-    <Layout className='layout-min-height'>
+    <Layout className={classes.height}>
         <Header />
-        <Layout className='site-layout board-layout'>
+        <Layout className={classes.layout}>
             <Sider />
-            <Content className='board-content'>
+            <Content className={classes.content}>
                 <Board />
             </Content>
         </Layout>

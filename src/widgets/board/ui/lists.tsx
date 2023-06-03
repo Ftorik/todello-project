@@ -54,7 +54,7 @@ export function Lists() {
     const handleDragOver = (e: React.DragEvent) => {
         const current = e.currentTarget as HTMLElement;
         const active = document.querySelector('.active-list');
-        const isMovable = active && current.classList.contains('list-header') && active !== current;
+        const isMovable = active && current.classList.contains('list') && active !== current;
 
         if (isMovable) {
             e.preventDefault();

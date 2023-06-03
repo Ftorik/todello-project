@@ -1,0 +1,14 @@
+.height {
+    min-height: 100vh
+}
+
+.layout {
+    margin-left: 200px !important;
+    background-color: rgb(17, 106, 58);
+    /*background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2404x1600/2f123d08bc78faf5d4fc9e19e6060509/photo-1464263866732-138a1da44860.jpg");*/
+}
+
+.content {
+    margin: 16px;
+    overflow: auto;
+}

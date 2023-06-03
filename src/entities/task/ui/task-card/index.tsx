@@ -4,6 +4,8 @@ import { Card } from 'antd';
 
 import { modalTask } from '../../lib';
 
+import classes from './styles.module.css';
+
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
 export type TaskCardProps = PropsWithChildren<{
@@ -25,7 +27,7 @@ export const TaskCard = ({
 
     return (
         <Card
-            className='task card'
+            className={`${classes.card} task`}
             draggable={true}
             onDragStart={(e) => handleDragStartTask(e, task)}
             onDragEnd={handleDragEndTask}
@@ -35,9 +37,9 @@ export const TaskCard = ({
             bodyStyle={{ padding: 5 }}
             role='presentation'
         >
-            <div className='card-title'>{task.title}</div>
+            <div className={classes.title}>{task.title}</div>
             <span
-                className='card-edit'
+                className={classes.edit}
                 role='presentation'
                 onClick={(e) => {
                     e.stopPropagation();

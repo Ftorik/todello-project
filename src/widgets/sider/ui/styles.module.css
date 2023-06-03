@@ -1,0 +1,12 @@
+.sider {
+    overflow: auto;
+    height: 100vh;
+    background-color: hsla(154, 68.5%, 17.5%) !important;
+    position: fixed !important;
+    left: 0
+}
+
+.menu {
+    background-color: hsla(154, 68.5%, 17.5%);
+    color: white;
+}

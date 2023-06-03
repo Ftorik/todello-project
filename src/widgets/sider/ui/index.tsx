@@ -1,7 +1,8 @@
 import React from 'react';
+import { DesktopOutlined, FileOutlined } from '@ant-design/icons';
 import { Layout, Menu, MenuProps } from 'antd';
 
-import { DesktopOutlined, FileOutlined } from '@ant-design/icons';
+import classes from './styles.module.css';
 
 const { Sider: AntSider } = Layout;
 
@@ -17,7 +18,7 @@ const items: MenuItem[] = [
 ];
 
 export const Sider = () => (
-    <AntSider className='sider'>
-        <Menu className='sider-menu' defaultSelectedKeys={['1']} items={items} />
+    <AntSider className={classes.sider}>
+        <Menu className={classes.menu} defaultSelectedKeys={['1']} items={items} />
     </AntSider>
 );

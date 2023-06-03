@@ -3,6 +3,8 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Button, Input, InputRef, Space } from 'antd';
 import { useOutsideClick } from 'shared/lib';
 
+import classes from './styles.module.css';
+
 interface TaskProps {
     taskProps: {
         visible: boolean;
@@ -45,12 +47,11 @@ export function CreateTask({ taskProps }: TaskProps) {
 
     return (
         <div ref={divRef}>
-            <Space direction='vertical' style={{ display: 'flex' }}>
+            <Space direction='vertical' className={classes.space}>
                 <Input.TextArea
                     ref={inputRef}
                     placeholder='Ввести заголовок для этой карточки'
                     autoSize={{ minRows: 3, maxRows: 8 }}
-                    style={{ resize: 'none' }}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />

@@ -1,5 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
+import classes from './styles.module.css';
+
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
 export type TaskRowProps = PropsWithChildren<{
@@ -27,7 +29,6 @@ export const TaskRow = ({
 
     return (
         <div
-            className='task'
             draggable={true}
             onDragOver={handeDragOverTask}
             onDragStart={(e) => handleDragStartTask(e, task)}
@@ -36,25 +37,11 @@ export const TaskRow = ({
             onDrop={(e) => handleDropTask(e, task)}
             onClick={() => modalTask(task)}
             key={task.id}
-            style={{
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                marginTop: 10,
-            }}
+            className={`${classes.row} task`}
             role='presentation'
         >
             <div>{task.title}</div>
-            <button
-                type='button'
-                onClick={() => deleteTask(task.id)}
-                style={{
-                    marginLeft: 25,
-                    cursor: 'pointer',
-                    backgroundColor: 'rgba(255,0,0,0.2)',
-                    border: '1px solid gray',
-                }}
-            >
+            <button type='button' onClick={() => deleteTask(task.id)} className={classes.button}>
                 🗑️
             </button>
         </div>

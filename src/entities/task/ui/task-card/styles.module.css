@@ -1,0 +1,31 @@
+.card {
+    width: 300px;
+}
+
+.card:hover {
+    background-color: rgba(253, 253, 253, 0.5);
+}
+
+.card:hover .edit {
+    visibility: visible;
+}
+
+.title {
+    inline-size: 250px;
+    overflow-wrap: break-word;
+}
+
+.edit {
+    padding: 2px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    visibility: hidden;
+}
+
+.edit:hover {
+    background: lightgray;
+    border-radius: 2px;
+}

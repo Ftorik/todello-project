@@ -7,6 +7,8 @@ import { TodoListProps } from '../model/types';
 
 import { TodoListFooter } from './todo-list-footer';
 
+import classes from './styles.module.css';
+
 type TaskType = import('entities/task').taskModel.types.TaskType;
 
 export const FeatureTodoList = ({
@@ -70,19 +72,12 @@ export const FeatureTodoList = ({
         <List
             {...props}
             split={false}
-            className='list-header'
+            className={`${classes.todolist} list`}
             header={<ListTitle list={list} />}
             bordered={true}
             footer={
                 <TodoListFooter addNewTask={addNewTask} deleteListAndTasks={deleteListAndTasks} />
             }
-            style={{
-                width: 305,
-                cursor: 'grab',
-                backgroundColor: '#ebecf0',
-                overflowY: 'auto',
-                maxHeight: 730,
-            }}
         >
             <div
                 className='tasks'

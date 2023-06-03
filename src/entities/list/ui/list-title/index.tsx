@@ -3,6 +3,8 @@ import { Input, InputRef } from 'antd';
 
 import { useListActions } from '../../lib';
 
+import classes from './styles.module.css';
+
 type ListType = import('entities/list').listModel.types.ListType;
 
 type ListTitleProps = {
@@ -40,7 +42,7 @@ export const ListTitle = ({ list }: ListTitleProps) => {
         <div>
             {inputVisible ? (
                 <Input
-                    style={{ fontSize: 16, fontWeight: '500' }}
+                    className={classes.font}
                     size='middle'
                     ref={inputRef}
                     value={inputValue}
@@ -50,11 +52,7 @@ export const ListTitle = ({ list }: ListTitleProps) => {
                     type='text'
                 />
             ) : (
-                <div
-                    onClick={showInput}
-                    role='presentation'
-                    style={{ fontSize: 16, fontWeight: '500' }}
-                >
+                <div onClick={showInput} role='presentation' className={classes.font}>
                     {inputValue}
                 </div>
             )}

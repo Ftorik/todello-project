@@ -1,0 +1,13 @@
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.button {
+    margin-left: 25px;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid gray;
+}

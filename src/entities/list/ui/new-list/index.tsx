@@ -5,6 +5,8 @@ import { useOutsideClick } from 'shared/lib';
 
 import { useListActions } from '../../lib';
 
+import classes from './styles.module.css';
+
 export const AddNewList = () => {
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -36,18 +38,9 @@ export const AddNewList = () => {
 
     return inputVisible ? (
         <div ref={divRef}>
-            <Space
-                direction='vertical'
-                style={{
-                    display: 'flex',
-                    border: '1px solid #d9d9d9',
-                    backgroundColor: 'rgb(235, 236, 240)',
-                    padding: 10,
-                    borderRadius: 8,
-                }}
-            >
+            <Space direction='vertical' className={classes.space}>
                 <Input
-                    style={{ fontSize: 16, fontWeight: '500' }}
+                    className={classes.input}
                     size='small'
                     ref={inputRef}
                     value={inputValue}
@@ -68,7 +61,7 @@ export const AddNewList = () => {
     ) : (
         <Button
             icon={<PlusOutlined />}
-            style={{ backgroundColor: 'rgb(235, 236, 240,0.3)', color: 'white' }}
+            className={classes.button}
             onClick={() => setInputVisible(true)}
         >
             Добавить еще одну колонку

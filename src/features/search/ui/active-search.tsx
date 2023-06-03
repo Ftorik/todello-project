@@ -6,6 +6,8 @@ import { taskLib, taskModel } from 'entities/task';
 
 import type { ActiveSearchProps } from '../model/types';
 
+import classes from './styles.module.css';
+
 type TmpType = { task: import('entities/task').taskModel.types.TaskType };
 
 const NoResult = () => <div>No result found</div>;
@@ -61,8 +63,7 @@ export const ActiveSearch = ({ visible, setVisible }: ActiveSearchProps) => {
 
     return (
         <AutoComplete
-            // popupMatchSelectWidth={550} //TODO: fix popup size(or remove it)
-            style={{ width: 300, cursor: 'text' }}
+            className={classes.active}
             options={options}
             value={inputValue}
             onSelect={onSelect}

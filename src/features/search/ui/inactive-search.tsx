@@ -4,12 +4,14 @@ import { Input } from 'antd';
 
 import type { InactiveSearchProps } from '../model/types';
 
+import classes from './styles.module.css';
+
 export const InactiveSearch = ({ setVisible }: InactiveSearchProps) => (
     <Input
         onFocus={() => setVisible(true)}
         size='middle'
         bordered={false}
-        className='task-search-input'
+        className={classes.search}
         value='Поиск'
         prefix={<SearchOutlined />}
     />

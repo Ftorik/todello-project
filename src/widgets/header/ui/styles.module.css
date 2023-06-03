@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: hsla(154, 68.5%, 17.5%, 0.9);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1
+}
+
+.text {
+    display: flex;
+    flex-basis: 50%;
+    margin-left: 20px
+}
+
+.search {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center
+}
