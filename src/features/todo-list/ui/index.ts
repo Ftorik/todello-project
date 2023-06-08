@@ -1,1 +1,1 @@
-export * from './todo-list';
+export { FeatureTodoList } from './todo-list';

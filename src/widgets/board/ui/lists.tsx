@@ -18,7 +18,7 @@ const initialTask = {
 };
 const initialList = { id: '', order: 0, title: '' };
 
-export function Lists() {
+export const Lists = () => {
     const lists = listModel.selectors.useLists();
     const [startList, setStartList] = useState<ListType>(initialList);
     const [startTask, setStartTask] = useState<TaskType>(initialTask);
@@ -109,4 +109,4 @@ export function Lists() {
             ))}
         </Space>
     );
-}
+};
